@@ -35,6 +35,9 @@ function user_define_main(){
         }
     }
 }
-
+//神秘商店
+function ppear_shop(){
+    
+}
 //入口
 user_define_main()

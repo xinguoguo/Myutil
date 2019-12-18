@@ -64,7 +64,7 @@ while(true){
     }
 }
 //再次挑战
-sleep(15000)
+sleep(25000)
 dt = images.read("/storage/emulated/0/wx/zai.png");
 while(true){
     var src =captureScreen()
@@ -82,7 +82,7 @@ while(true){
     }
 }
 //返回城镇
-sleep(15000)
+sleep(25000)
 dt = images.read("/storage/emulated/0/wx/zai.png");
 while(true){
     var src =captureScreen()
@@ -126,15 +126,15 @@ while(true){
 
 //斗牛节两次
 bullfight()
-sleep(5000)
+sleep(8000)
 bullfight()
-sleep(5000)
+sleep(8000)
 //勇者之塔
 tower_fight()
-sleep(5000)
+sleep(8000)
 //寻宝
 treasure()
-sleep(5000)
+sleep(8000)
 //退出日常
 quit_day_play()
 }
@@ -177,7 +177,7 @@ while(true){
     }
 }
 
-sleep(60000)
+sleep(90000)
 //退出斗牛节
 dt = images.read("/storage/emulated/0/wx/dnjjs.png");
 dt2= images.read("/storage/emulated/0/wx/dnjjs2.png");
@@ -253,8 +253,10 @@ while(true){
     if(p){
         toast("点击对话"); 
         rand_click(1076,773,53)
-        sleep(3000)
-        rand_click(1844,35,7)//点击设置
+        sleep(2000)
+        rand_click(1844,35,3)//点击设置
+        // sleep(1000)
+        // rand_click(1844,35,3)//再次尝试点击设置
         break;
     }else{
         sleep(2000)
@@ -315,8 +317,12 @@ while(true){
         rand_click(1082,744,53)
         sleep(3000)
         //忘记作图了,emmmmmm
+        rand_click(500,452,73)//尝试三级寻宝
+        sleep(1000)
+        rand_click(1660,880,73)
+        sleep(1000)
+        //尝试二级寻宝
         rand_click(615,326,73)//二级寻宝
-       // rand_click(500,452,73)//三级寻宝
         sleep(1000)
         rand_click(1660,880,73)
         break;
@@ -325,7 +331,7 @@ while(true){
     }
 }
 //寻宝结束
-sleep(60000)
+sleep(90000)
 dt = images.read("/storage/emulated/0/wx/dnjjs.png");
 while(true){
     src =captureScreen();
@@ -527,7 +533,15 @@ while(true){
 //退出
 
 }
-
+function close_act(){
+    toast("关闭活动页面");
+    sleep(5000)
+    rand_click(1080,13,13)
+    sleep(1500)
+    rand_click(1080,13,13)
+    sleep(1500)
+    rand_click(1817,224,3)
+}
 function user_define_main(){
     auto();//最好在脚本开头使用auto()函数来确保无障碍服务已经启用
     toast("开始");
@@ -539,6 +553,8 @@ function user_define_main(){
     launchApp("阿拉德之怒");
     sleep(2000);//必须等待一下 防止截屏全黑
 
+    //关闭福利页面
+    close_act()
     //银叶2次
     yy_map_2()
 
@@ -552,5 +568,9 @@ function user_define_main(){
 
 //入口
 var src,dt,dt2,p,p2;
+//角色数组
+var roles_x=[580,884,1221,1573,546,897,1232,1569];
+var roles_y=[251,254,256,253,634,654,648,652];
+
 user_define_main()
 toast("脚本结束")
