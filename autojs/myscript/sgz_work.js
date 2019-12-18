@@ -1,4 +1,8 @@
-
+var roles_x=[580,884,1221,1573,546,897,1232,1569];
+var roles_y=[251,254,256,253,634,654,648,652];
+var src,dt,dt2,p,p2;
+var START=6;
+var END=7;//0-7
 /**
  * 防检测,随机点击
  */
@@ -543,16 +547,6 @@ function close_act(){
     rand_click(1817,224,3)
 }
 function user_define_main(){
-    auto();//最好在脚本开头使用auto()函数来确保无障碍服务已经启用
-    toast("开始");
-    //auto();//最好在脚本开头使用auto()函数来确保无障碍服务已经启用
-    //home()
-    requestScreenCapture(true);//需要在auto.js界面内使用
-    sleep(1000);
-    //home();
-    launchApp("阿拉德之怒");
-    sleep(2000);//必须等待一下 防止截屏全黑
-
     //关闭福利页面
     close_act()
     //银叶2次
@@ -565,12 +559,71 @@ function user_define_main(){
     //好友赠礼
     send_gift()
 }
+function get_permission(){
+    //获取权限,打开游戏
+    auto();//最好在脚本开头使用auto()函数来确保无障碍服务已经启用
+    toast("开始");
+    //auto();//最好在脚本开头使用auto()函数来确保无障碍服务已经启用
+    //home()
+    requestScreenCapture(true);//需要在auto.js界面内使用
+    sleep(1000);
+    //home();
+    launchApp("阿拉德之怒");
+    sleep(2000);//必须等待一下 防止截屏全黑
+}
 
+function load_role(x,y){
+//加载坐标为x,y的角色
+dt = images.read("/storage/emulated/0/wx/ybt.png");
+while(true){
+        src =captureScreen();
+        p = findImage(src, dt, {
+            region: [482, 9, 29, 48],
+            threshold: 0.99
+        });
+        if(p){
+            toast("加载坐标为 "+x+", "+y+" 的角色"); 
+            rand_click(x,y,73)
+            sleep(1000)
+            rand_click(1025,973,33)//开始游戏
+            sleep(8000)
+            break;
+        }else{
+            sleep(2000)
+        }
+    }
+}
+
+function quit_role(){
+    dt = images.read("/storage/emulated/0/wx/fdj.png");
+while(true){
+    src =captureScreen();
+    p = findImage(src, dt, {
+        region: [2205, 8, 36, 30],
+        threshold: 0.99
+    });
+    if(p){
+        toast("点击角色头像"); 
+        rand_click(31,52,17)
+        sleep(1000)
+        rand_click(31,52,17)
+        sleep(2000)
+        toast("切换角色"); 
+        rand_click(1391,894,29)
+        sleep(3000)
+        break;
+    }else{
+        sleep(2000)
+    }
+}
+}
 //入口
-var src,dt,dt2,p,p2;
 //角色数组
-var roles_x=[580,884,1221,1573,546,897,1232,1569];
-var roles_y=[251,254,256,253,634,654,648,652];
-
-user_define_main()
+get_permission()
+for(index=START;index<END;index++){
+    load_role(roles_x[index],roles_y[index]);
+    user_define_main();
+    //角色切换
+    quit_role();
+}
 toast("脚本结束")
