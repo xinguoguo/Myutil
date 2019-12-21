@@ -38,10 +38,10 @@ function user_define_main(){
 }
 //神秘商店
 function appear_shop(){
-    dt = images.read("/storage/emulated/0/wx/djdh.png");
+   var dt2 = images.read("/storage/emulated/0/wx/djdh.png");
 {
     src =captureScreen();
-    p = findImage(src, dt, {
+    p = findImage(src, dt2, {
         region: [1765, 941, 84, 60],
         threshold: 0.99
     });

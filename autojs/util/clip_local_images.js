@@ -6,8 +6,7 @@ toast("开始");
 //home()
 sleep(1000);
 
-//斗牛节结束2
-var src =images.read("/storage/emulated/0/wx/斗牛节结束.png");
-var clip = images.clip(src, 1192, 314, 48, 46);//截取的位置
-images.save(clip, "/storage/emulated/0/wx/"+"dnjjs2.png");//保存名
-toast("结束");
+//点击对话
+var src =images.read("/storage/emulated/0/wx/点击对话.png");
+var clip = images.clip(src, 1765, 941, 84, 60);//截取的位置
+images.save(clip, "/storage/emulated/0/wx/"+"djdh2.png");//保存名

@@ -1,9 +1,5 @@
-var roles_x=[580,884,1221,1573,546,897,1232,1569];
-var roles_y=[251,254,256,253,634,654,648,652];
 var src,dt,dt2,p,p2;
 var dt3;//作为子函数中局部变量的引用
-var START=6;
-var END=7;//0-7
 /**
  * 防检测,随机点击
  */
@@ -102,7 +98,7 @@ while(true){
         sleep(5000)
         break;
     }else{
-        appear_shop()
+       appear_shop()
         sleep(2000)
     }
 }
@@ -648,11 +644,9 @@ function appear_shop(){
 }
 //入口
 //角色数组
-get_permission()
-for(index=START;index<=END;index++){
-    load_role(roles_x[index],roles_y[index]);
+    get_permission()
+   // load_role(roles_x[index],roles_y[index]);
     user_define_main();
     //角色切换
     quit_role();
-}
 toast("脚本结束")
