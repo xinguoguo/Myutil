@@ -30,7 +30,7 @@ while(true){
         toast("前往银叶"); 
         break;
     }else{
-        sleep(2000)
+        sleep(1000)
     }
 }
 //挑战港口郊外
@@ -82,7 +82,8 @@ while(true){
         sleep(5000)
         break;
     }else{
-        sleep(5000)
+        appear_shop()
+        sleep(2000)
     }
 }
 //返回城镇
@@ -100,7 +101,8 @@ while(true){
         sleep(5000)
         break;
     }else{
-        sleep(5000)
+        appear_shop()
+        sleep(2000)
     }
 }
 }
@@ -258,9 +260,9 @@ while(true){
         toast("点击对话"); 
         rand_click(1076,773,53)
         sleep(2000)
-        rand_click(1844,35,3)//点击设置
+        // rand_click(1843,28,3)//点击设置
         // sleep(1000)
-        // rand_click(1844,35,3)//再次尝试点击设置
+        rand_click(1853,37,3)//再次尝试点击设置
         break;
     }else{
         sleep(2000)
@@ -329,6 +331,10 @@ while(true){
         rand_click(615,326,73)//二级寻宝
         sleep(1000)
         rand_click(1660,880,73)
+        //尝试一级寻宝
+        rand_click(269,116,67)//一级寻宝
+        sleep(1000)
+        rand_click(1660,880,67)
         break;
     }else{
         sleep(2000)
@@ -544,6 +550,8 @@ function close_act(){
     sleep(1500)
     rand_click(1080,13,13)
     sleep(1500)
+    rand_click(1080,13,13)//随机点三下 关闭可能出现的福利页面
+    sleep(1500)
     rand_click(1817,224,3)
 }
 function user_define_main(){
@@ -617,10 +625,30 @@ while(true){
     }
 }
 }
+
+//神秘商店
+function appear_shop(){
+    dt = images.read("/storage/emulated/0/wx/djdh.png");
+{
+    src =captureScreen();
+    p = findImage(src, dt, {
+        region: [1765, 941, 84, 60],
+        threshold: 0.99
+    });
+    if(p){
+        toast("点击对话"); 
+        rand_click(1076,773,53)
+        sleep(1000)
+        rand_click(1821,153,13)//关闭商店
+        sleep(1000)
+    }
+}
+   
+}
 //入口
 //角色数组
 get_permission()
-for(index=START;index<END;index++){
+for(index=START;index<=END;index++){
     load_role(roles_x[index],roles_y[index]);
     user_define_main();
     //角色切换

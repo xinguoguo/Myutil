@@ -31,13 +31,29 @@ function user_define_main(){
             rand_click(1895,196,22)
             sleep(5000)
         }else{
+            appear_shop()
             sleep(5000)
         }
     }
 }
 //神秘商店
-function ppear_shop(){
-    
+function appear_shop(){
+    dt = images.read("/storage/emulated/0/wx/djdh.png");
+{
+    src =captureScreen();
+    p = findImage(src, dt, {
+        region: [1765, 941, 84, 60],
+        threshold: 0.99
+    });
+    if(p){
+        toast("点击对话"); 
+        rand_click(1076,773,53)
+        sleep(2000)
+        rand_click(1821,153,13)//关闭商店
+        sleep(1000)
+    }
+}
+   
 }
 //入口
 user_define_main()
