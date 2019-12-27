@@ -65,7 +65,7 @@ while(true){
     }
 }
 //再次挑战
-sleep(30000)
+sleep(35000)
 dt = images.read("/storage/emulated/0/wx/zai.png");
 while(true){
     var src =captureScreen()
@@ -84,7 +84,7 @@ while(true){
     }
 }
 //返回城镇
-sleep(30000)
+sleep(35000)
 dt = images.read("/storage/emulated/0/wx/zai.png");
 while(true){
     var src =captureScreen()
@@ -109,17 +109,19 @@ function day_play(){
 toast("开始日常任务"); 
 
 //进入日常界面
-dt = images.read("/storage/emulated/0/wx/bj.png");
+dt = images.read("/storage/emulated/0/wx/fdj.png");
 while(true){
     src =captureScreen();
     p = findImage(src, dt, {
-        region: [2150, 614, 36, 42],
+        region: [2205, 8, 36, 30],
         threshold: 0.99
     });
     if(p){
         toast("点击日常"); 
-        rand_click(2153,614,22)
-        sleep(1000)
+        sleep(1500)
+        rand_click(2162,628,13)
+        rand_click(2162,628,13)
+        sleep(1500)
         rand_click(216,276,49)//点击日常玩法
         break;
     }else{

@@ -2,6 +2,13 @@
 // var src =images.read("/storage/emulated/0/wx/城镇.png");
 // var clip = images.clip(src, 2150, 614, 36, 42); bj.png//截取的位置
 
+//日常活动宝剑2
+// var src =images.read("/storage/emulated/0/wx/银叶城镇.png");
+// var clip = images.clip(src, 2160, 623, 22, 29);//截取的位置
+// images.save(clip, "/storage/emulated/0/wx/"+"bj2.png");//保存名
+
+
+
 //再来一次位置
 //var src = captureScreen();//截取当前屏
 //var clip = images.clip(src, 1895, 196, 51, 48);//截取的位置

@@ -10,6 +10,6 @@ launchApp("阿拉德之怒");
 sleep(3000);
 //日常活动宝剑
 var src = captureScreen();//截取当前屏
-images.save(src, "/storage/emulated/0/wx/"+"神秘商店.png");//保存名
+images.save(src, "/storage/emulated/0/wx/"+"银叶城镇.png");//保存名
 //
 toast("结束");

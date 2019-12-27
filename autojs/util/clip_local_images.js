@@ -7,6 +7,10 @@ toast("开始");
 sleep(1000);
 
 //点击对话
-var src =images.read("/storage/emulated/0/wx/点击对话.png");
-var clip = images.clip(src, 1765, 941, 84, 60);//截取的位置
-images.save(clip, "/storage/emulated/0/wx/"+"djdh2.png");//保存名
+//日常活动宝剑
+var src =images.read("/storage/emulated/0/wx/银叶城镇.png");
+var clip = images.clip(src, 2160, 623, 22, 29);//截取的位置
+images.save(clip, "/storage/emulated/0/wx/"+"bj2.png");//保存名
+
+
+toast("结束");
