@@ -69,7 +69,7 @@ while(true){
     }
 }
 //再次挑战
-sleep(35000)
+sleep(32000)
 dt = images.read("/storage/emulated/0/wx/zai.png");
 while(true){
     var src =captureScreen()
@@ -84,11 +84,11 @@ while(true){
         break;
     }else{
         appear_shop()
-        sleep(2000)
+        sleep(1000)
     }
 }
 //返回城镇
-sleep(35000)
+sleep(32000)
 dt = images.read("/storage/emulated/0/wx/zai.png");
 while(true){
     var src =captureScreen()
@@ -103,7 +103,7 @@ while(true){
         break;
     }else{
         appear_shop()
-        sleep(2000)
+        sleep(1000)
     }
 }
 }
@@ -122,7 +122,7 @@ while(true){
     });
     if(p){
         toast("点击日常"); 
-        sleep(1500)
+        sleep(3500)
         rand_click(2162,628,13)
         rand_click(2162,628,13)
         sleep(1500)
@@ -263,9 +263,10 @@ while(true){
         toast("点击对话"); 
         rand_click(1076,773,53)
         sleep(2000)
-        // rand_click(1843,28,3)//点击设置
-        // sleep(1000)
+        rand_click(1843,28,3)//点击设置
+        sleep(1000)
         rand_click(1853,37,3)//再次尝试点击设置
+        sleep(1000)
         break;
     }else{
         sleep(2000)
@@ -334,17 +335,19 @@ while(true){
         rand_click(615,326,73)//二级寻宝
         sleep(1000)
         rand_click(1660,880,73)
+        sleep(1000)
         //尝试一级寻宝
-        rand_click(269,116,67)//一级寻宝
+        rand_click(269,116,27)//一级寻宝
         sleep(1000)
         rand_click(1660,880,67)
+        sleep(1000)
         break;
     }else{
         sleep(2000)
     }
 }
 //寻宝结束
-sleep(90000)
+sleep(150000)
 dt = images.read("/storage/emulated/0/wx/dnjjs.png");
 while(true){
     src =captureScreen();
@@ -594,6 +597,7 @@ while(true){
         });
         if(p){
             toast("加载坐标为 "+x+", "+y+" 的角色"); 
+            sleep(2000)
             rand_click(x,y,73)
             sleep(1000)
             rand_click(1025,973,33)//开始游戏
