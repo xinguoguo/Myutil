@@ -22,11 +22,15 @@ function user_define_main(){
     var dt = images.read("/storage/emulated/0/wx/zai.png");
     while(true){
         var src =captureScreen()
-        var p = findImage(src, dt, {
+        var p = findColor(src, "#fafafd", {
+            region: [1950, 195, 22, 12],
+            threshold: 4
+        });
+        var p2 = findImage(src, dt, {
             region: [1895, 196, 51, 48],
             threshold: 0.99
         });
-        if(p){
+        if(p&&p2){
             toast("找到图片点击  "+"再来一次"); 
             rand_click(1895,196,22)
             sleep(5000)
