@@ -4,6 +4,7 @@ var src,dt,dt2,p,p2;
 var dt3;//作为子函数中局部变量的引用
 var START=6;
 var END=7;//0-7
+var mode=0//0 开启三级 //1 关闭三级寻宝
 /**
  * 防检测,随机点击
  */
@@ -69,7 +70,7 @@ while(true){
     }
 }
 //再次挑战
-sleep(38000)
+sleep(32000)
 dt = images.read("/storage/emulated/0/wx/zai.png");
 while(true){
     var src =captureScreen()
@@ -92,7 +93,7 @@ while(true){
     }
 }
 //返回城镇
-sleep(38000)
+sleep(32000)
 dt = images.read("/storage/emulated/0/wx/zai.png");
 while(true){
     var src =captureScreen()
@@ -338,8 +339,10 @@ while(true){
         rand_click(1082,744,53)
         sleep(3000)
         //忘记作图了,emmmmmm
-        rand_click(500,452,73)//尝试三级寻宝
-        sleep(1000)
+        if(mode==0){
+            rand_click(500,452,73)//尝试三级寻宝
+            sleep(1000)
+        }
         rand_click(1660,880,73)
         sleep(1000)
         //尝试二级寻宝
@@ -348,7 +351,7 @@ while(true){
         rand_click(1660,880,73)
         sleep(1000)
         //尝试一级寻宝
-        rand_click(269,116,27)//一级寻宝
+        rand_click(286,190,27)//一级寻宝
         sleep(1000)
         rand_click(1660,880,67)
         sleep(1000)
@@ -358,7 +361,7 @@ while(true){
     }
 }
 //寻宝结束
-sleep(80000)
+sleep(70000)
 dt = images.read("/storage/emulated/0/wx/dnjjs.png");
 while(true){
     src =captureScreen();
@@ -636,9 +639,9 @@ while(true){
     });
     if(p){
         toast("点击角色头像"); 
-        rand_click(31,52,17)
+        rand_click(120,55,17)
         sleep(1000)
-        rand_click(31,52,17)
+        rand_click(120,55,17)
         sleep(2000)
         toast("切换角色"); 
         rand_click(1391,894,29)
@@ -661,6 +664,7 @@ function appear_shop(){
     });
     if(p){
         toast("点击对话"); 
+        sleep(1000)
         rand_click(1076,773,53)
         sleep(1000)
         rand_click(1821,153,13)//关闭商店

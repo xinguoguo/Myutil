@@ -51,6 +51,7 @@ function appear_shop(){
     });
     if(p){
         toast("点击对话"); 
+        sleep(1000)
         rand_click(1076,773,53)
         sleep(2000)
         rand_click(1821,153,13)//关闭商店
