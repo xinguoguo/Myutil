@@ -123,3 +123,7 @@
 // var src =images.read("/storage/emulated/0/wx/商城.png");
 // var clip = images.clip(src,30,54,50,33);//截取的位置
 // images.save(clip, "/storage/emulated/0/wx/"+"tcsc.png");//保存名
+
+//选择角色
+// var clip = images.clip(src, 1506, 37, 39, 36);//截取的位置
+// images.save(clip, "/storage/emulated/0/wx/"+"jiaose.png");//保存名

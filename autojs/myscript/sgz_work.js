@@ -2,9 +2,10 @@ var roles_x=[580,884,1221,1573,546,897,1232,1569];
 var roles_y=[251,254,256,253,634,654,648,652];
 var src,dt,dt2,p,p2;
 var dt3;//作为子函数中局部变量的引用
-var START=6;
+var START=0;
 var END=7;//0-7
-var mode=0//0 开启三级 //1 关闭三级寻宝
+var mode=1//0 开启三级 //1 关闭三级寻宝
+var SKIP=-1;//需要跳过的角色-1/0-7
 /**
  * 防检测,随机点击
  */
@@ -150,7 +151,7 @@ bullfight()
 sleep(8000)
 //勇者之塔
 tower_fight()
-sleep(8000)
+sleep(5000)
 //寻宝
 treasure()
 sleep(8000)
@@ -245,6 +246,9 @@ while(true){
         sleep(2000)
     }
 }
+
+sleep(2000)
+rand_click(1919,476,55)
 //开始勇者之塔
 dt = images.read("/storage/emulated/0/wx/kst.png");
 while(true){
@@ -254,52 +258,59 @@ while(true){
         threshold: 0.99
     });
     if(p){
-        toast("开始勇者之塔"); 
-        rand_click(1756,896,53)
+        toast("扫荡勇者之塔"); 
+        rand_click(1329,929,53)
         sleep(1000)
+        rand_click(1300,678,43)
+        sleep(1000)
+        rand_click(1557,929,55)
+        sleep(1000)
+        rand_click(1300,678,43)
+        sleep(1000)
+        rand_click(92,46,43)
         break;
     }else{
         sleep(2000)
     }
 }
-//点击对话
-dt = images.read("/storage/emulated/0/wx/djdh.png");
-while(true){
-    src =captureScreen();
-    p = findImage(src, dt, {
-        region: [1765, 941, 84, 60],
-        threshold: 0.99
-    });
-    if(p){
-        toast("点击对话"); 
-        rand_click(1076,773,53)
-        sleep(2000)
-        rand_click(1843,28,3)//点击设置
-        sleep(1000)
-        rand_click(1853,37,3)//再次尝试点击设置
-        sleep(1000)
-        break;
-    }else{
-        sleep(2000)
-    }
-}
-//离开副本
-dt = images.read("/storage/emulated/0/wx/lkfb.png");
-while(true){
-    src =captureScreen();
-    p = findImage(src, dt, {
-        region: [979, 580, 43, 46],
-        threshold: 0.99
-    });
-    if(p){
-        toast("离开勇者之塔"); 
-        rand_click(955,572,53)
-        sleep(1000)
-        break;
-    }else{
-        sleep(2000)
-    }
-}
+// //点击对话
+// dt = images.read("/storage/emulated/0/wx/djdh.png");
+// while(true){
+//     src =captureScreen();
+//     p = findImage(src, dt, {
+//         region: [1765, 941, 84, 60],
+//         threshold: 0.99
+//     });
+//     if(p){
+//         toast("点击对话"); 
+//         rand_click(1076,773,53)
+//         sleep(2000)
+//         rand_click(1843,28,3)//点击设置
+//         sleep(1000)
+//         rand_click(1853,37,3)//再次尝试点击设置
+//         sleep(1000)
+//         break;
+//     }else{
+//         sleep(2000)
+//     }
+// }
+// //离开副本
+// dt = images.read("/storage/emulated/0/wx/lkfb.png");
+// while(true){
+//     src =captureScreen();
+//     p = findImage(src, dt, {
+//         region: [979, 580, 43, 46],
+//         threshold: 0.99
+//     });
+//     if(p){
+//         toast("离开勇者之塔"); 
+//         rand_click(955,572,53)
+//         sleep(1000)
+//         break;
+//     }else{
+//         sleep(2000)
+//     }
+// }
 
 }
 
@@ -494,84 +505,103 @@ while(true){
          toast("进入社交"); 
          rand_click(1939,989,22)
          sleep(1000)
+         sleep(2000)
+         //点击好友栏
+         rand_click(432,726,23)
+         toast("送礼"); 
+         sleep(2000)
+         rand_click(787,395,23)
+         sleep(500)
+         rand_click(787,550,23)
+         sleep(500)
+         rand_click(787,703,23)
+         //退出社交界面
+         toast("退出社交界面")
+         rand_click(1856,114,27)
          break;
      }else{
          sleep(2000)
      }
  }
-    //寻找好友
-dt = images.read("/storage/emulated/0/wx/xzhy.png");
-while(true){
-        src =captureScreen();
-        p = findImage(src, dt, {
-            region: [536, 886, 40,39],
-            threshold: 0.99
-        });
-        if(p){
-            toast("寻找好友"); 
-            rand_click(531,885,33)
-            sleep(1000)
-            break;
-        }else{
-            sleep(2000)
-        }
-    }
-//添加好友
-dt = images.read("/storage/emulated/0/wx/tjhy.png");
-while(true){
-        src =captureScreen();
-        p = findImage(src, dt, {
-            region: [1807, 514, 25,27],
-            threshold: 0.99
-        });
-        if(p){
-            toast("添加好友3人"); 
-            rand_click(1795,510,23)
-            sleep(500)
-            rand_click(1795,510,23)
-            sleep(500)
-            rand_click(1795,510,23)
-            sleep(1000)
-            break;
-        }else{
-            sleep(2000)
-        }
-    }
+//     //寻找好友
+// dt = images.read("/storage/emulated/0/wx/xzhy.png");
+// while(true){
+//         src =captureScreen();
+//         p = findImage(src, dt, {
+//             region: [536, 886, 40,39],
+//             threshold: 0.99
+//         });
+//         if(p){
+//             toast("寻找好友"); 
+//             rand_click(531,885,33)
+//             sleep(1000)
+//             break;
+//         }else{
+//             sleep(2000)
+//         }
+//     }
+// //添加好友
+// dt = images.read("/storage/emulated/0/wx/tjhy.png");
+// while(true){
+//         src =captureScreen();
+//         p = findImage(src, dt, {
+//             region: [1807, 514, 25,27],
+//             threshold: 0.99
+//         });
+//         if(p){
+//             toast("添加好友3人"); 
+//             rand_click(1795,510,23)
+//             sleep(500)
+//             rand_click(1795,510,23)
+//             sleep(500)
+//             rand_click(1795,510,23)
+//             sleep(1000)
+//             break;
+//         }else{
+//             sleep(2000)
+//         }
+//     }
    //退出添加好友
-dt = images.read("/storage/emulated/0/wx/tctjhy.png");
-while(true){
-        src =captureScreen();
-        p = findImage(src, dt, {
-            region: [1848,117,37,29],
-            threshold: 0.99
-        });
-        if(p){
-            toast("退出添加好友"); 
-            rand_click(1848,111,23)
-            sleep(2000)
-            //点击好友栏
-            rand_click(432,726,23)
-            toast("送礼"); 
-            sleep(2000)
-            rand_click(787,395,23)
-            sleep(500)
-            rand_click(787,550,23)
-            sleep(500)
-            rand_click(787,703,23)
-            //退出社交界面
-            toast("退出社交界面")
-            rand_click(1856,114,27)
-            break;
-        }else{
-            sleep(2000)
-        }
-    }
+// dt = images.read("/storage/emulated/0/wx/tctjhy.png");
+// while(true){
+//         src =captureScreen();
+//         p = findImage(src, dt, {
+//             region: [1848,117,37,29],
+//             threshold: 0.99
+//         });
+//         if(p){
+//             toast("退出添加好友"); 
+//             rand_click(1848,111,23)
+//             sleep(2000)
+//             //点击好友栏
+//             rand_click(432,726,23)
+//             toast("送礼"); 
+//             sleep(2000)
+//             rand_click(787,395,23)
+//             sleep(500)
+//             rand_click(787,550,23)
+//             sleep(500)
+//             rand_click(787,703,23)
+//             //退出社交界面
+//             toast("退出社交界面")
+//             rand_click(1856,114,27)
+//             break;
+//         }else{
+//             sleep(2000)
+//         }
+//     }
 //退出
 
 }
 function close_act(){
     toast("关闭活动页面");
     sleep(5000)
+ //   rand_click(1127,988,13)//每周结算
+ //   rand_click(1080,13,13)
+ //   sleep(1500)
+    sleep(1500)
+    rand_click(1080,13,13)
+    sleep(1500)
     rand_click(1080,13,13)
     sleep(1500)
     rand_click(1080,13,13)
@@ -608,12 +638,16 @@ function get_permission(){
 
 function load_role(x,y){
 //加载坐标为x,y的角色
-dt = images.read("/storage/emulated/0/wx/ybt.png");
+//dt = images.read("/storage/emulated/0/wx/ybt.png");
+sleep(6000)
+dt = images.read("/storage/emulated/0/wx/jiaose.png");
 while(true){
         src =captureScreen();
         p = findImage(src, dt, {
-            region: [482, 9, 29, 48],
-            threshold: 0.99
+            //region: [482, 9, 29, 48],
+            //threshold: 0.99
+             region: [1506, 37, 39, 36],
+             threshold: 0.99
         });
         if(p){
             toast("加载坐标为 "+x+", "+y+" 的角色"); 
@@ -677,9 +711,25 @@ function appear_shop(){
 //角色数组
 get_permission()
 for(index=START;index<=END;index++){
+    if(index==SKIP){
+        continue;
+    }
     load_role(roles_x[index],roles_y[index]);
     user_define_main();
     //角色切换
     quit_role();
 }
+// sleep(2000)
+// rand_click(1947,525,33)
+// mode=0//开启三级寻宝
+// for(index=START;index<=END;index++){
+//     if(index==SKIP){
+//         continue;
+//     }
+//     load_role(roles_x[index],roles_y[index]);
+//     user_define_main();
+//     //角色切换
+//     quit_role();
+// }
 toast("脚本结束")
+home()

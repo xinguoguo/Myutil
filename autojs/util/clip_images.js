@@ -23,7 +23,7 @@ sleep(1000);
 
 //日常活动宝剑
 var src = captureScreen();//截取当前屏
-var clip = images.clip(src, 1895, 196, 51, 48);//截取的位置
-images.save(clip, "/storage/emulated/0/wx/"+"zai.png");//保存名
+var clip = images.clip(src, 1506, 37, 39, 36);//截取的位置
+images.save(clip, "/storage/emulated/0/wx/"+"jiaose.png");//保存名
 //
 toast("结束");

@@ -8,9 +8,9 @@ sleep(1000);
 
 //点击对话
 //日常活动宝剑
-var src =images.read("/storage/emulated/0/wx/银叶城镇.png");
-var clip = images.clip(src, 2160, 623, 22, 29);//截取的位置
-images.save(clip, "/storage/emulated/0/wx/"+"bj2.png");//保存名
+var src =images.read("/storage/emulated/0/wx/组队.png");
+var clip = images.clip(src, 1616, 504, 28, 21);//截取的位置
+images.save(clip, "/storage/emulated/0/wx/"+"yqhy.png");//保存名
 
 
 toast("结束");
